@@ -1,5 +1,7 @@
 # vue-clicky
 Handy debugging function for Vue. Right click any vue component, and it will show you neatly formatted info about it in the console.
+
+I don't know if it's worth creating a real package out if it, so I'll just paste the code here:
 ```javascript
 document.oncontextmenu = function clicky(e, v){
 	let vue = e && e.target.__vue__ || v
@@ -8,8 +10,10 @@ document.oncontextmenu = function clicky(e, v){
 		let proto = new function vue(){}
 		console.log(_.extend(proto,vue))
 		if(!_.isEmpty(vue._data)){
+			let data = {}
+			_.each(vue._data, (val, key) => data[key] = vue[key])
 			let proto = new function data(){}
-			console.log(_.extend(proto,vue._data))
+			console.log(_.extend(proto,data))
 		} else {
 			console.log('data',null)
 		}
