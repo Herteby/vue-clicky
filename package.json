@@ -1,0 +1,22 @@
+{
+  "name": "vue-clicky",
+  "version": "1.0.0",
+  "description": "Handy debugging tool for Vue. Right click a component to see key info in the console.",
+  "main": "clicky.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Herteby/vue-clicky.git"
+  },
+  "keywords": [
+    "vue","tool","debug"
+  ],
+  "author": "Simon Herteby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Herteby/vue-clicky/issues"
+  },
+  "homepage": "https://github.com/Herteby/vue-clicky#readme"
+}
