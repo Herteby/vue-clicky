@@ -3,10 +3,14 @@ Handy debugging function for Vue. Right click any vue component, and it will sho
 
 I don't know if it's worth creating a real package out if it, so I'll just paste the code here:
 ```javascript
-document.oncontextmenu = function clicky(e, v){
-	let vue = e && e.target.__vue__ || v
+document.oncontextmenu = function clicky(e, isParent){
+	let vue = e.target && e.target.__vue__ || e
 	if(vue){
-		console.group(vue.$options.name || vue.$options._componentTag)
+		if(isParent){
+			console.groupCollapsed('%cparent:%c' + (vue.$options.name || vue.$options._componentTag || vue.$options.el),'font-weight:normal','color:green')
+		} else {
+			console.group('%c' + (vue.$options.name || vue.$options._componentTag || vue.$options.el),'color:green')
+		}
 		let proto = new function vue(){}
 		console.log(_.extend(proto,vue))
 		if(!_.isEmpty(vue._data)){
@@ -32,16 +36,7 @@ document.oncontextmenu = function clicky(e, v){
 			console.log('props',null)
 		}
 		if(vue.$parent){
-			let proto = new function parent(){}
-			let link = {
-				name:vue.$parent.$options.name || null,
-				tag:vue.$parent.$options._componentTag || null,
-				get LINK(){
-				clicky(false, vue.$parent)
-				return null
-			}}
-			link.__proto__ = proto.__proto__
-			console.log(link)
+			clicky(vue.$parent,true)
 		} else {
 			console.log('parent',null)
 		}
