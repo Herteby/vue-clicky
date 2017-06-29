@@ -1,6 +1,6 @@
 {
   "name": "vue-clicky",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Handy debugging tool for Vue. Right click a component to see key info in the console.",
   "main": "clicky.js",
   "scripts": {
