@@ -1,7 +1,17 @@
 # vue-clicky
 Handy debugging function for Vue. Right click any vue component, and it will show you neatly formatted info about it in the console.
 
+Currently it shows
+* The Vue component itself
+* Current data, props and computed properties
+* Parent component. Open the parent and it will display the same info about it.
+
+### Screenshot
+![screenshot](https://github.com/Herteby/vue-clicky/blob/master/screenshot.png)
+
+### Code
 I don't know if it's worth creating a real package out if it, so I'll just paste the code here:
+
 ```javascript
 document.oncontextmenu = function clicky(e, isParent){
     let vue = isParent ? e : e.target && e.target.__vue__
