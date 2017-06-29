@@ -4,7 +4,7 @@ Handy debugging function for Vue. Right click any vue component, and it will sho
 I don't know if it's worth creating a real package out if it, so I'll just paste the code here:
 ```javascript
 document.oncontextmenu = function clicky(e, isParent){
-    let vue = e.target && e.target.__vue__ || e
+    let vue = isParent ? e : e.target && e.target.__vue__
     if(vue){
         if(isParent){
             console.groupCollapsed('%cparent:%c' + (vue.$options.name || vue.$options._componentTag || vue.$options.el),'font-weight:normal','color:green')
