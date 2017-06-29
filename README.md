@@ -13,7 +13,7 @@ Currently it shows
 I don't know if it's worth creating a real package out if it, so I'll just paste the code here:
 
 ```javascript
-document.oncontextmenu = function clicky(e, isParent){
+document.addEventListener('contextMenu', function clicky(e, isParent){
     let vue = isParent ? e : e.target && e.target.__vue__
     if(vue){
         if(isParent){
@@ -54,5 +54,5 @@ document.oncontextmenu = function clicky(e, isParent){
     } else if(e.target.parentNode){
         clicky({target:e.target.parentNode})
     }
-}
+})
 ```
