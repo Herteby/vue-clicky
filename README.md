@@ -4,6 +4,9 @@ Handy debugging function for Vue. Right click any vue component, and it will sho
 ```
 npm install --save vue-clicky
 ```
+```javascript
+import 'vue-clicky'
+```
 It has no dependencies, and shouldn't conflict with anything. It just adds a 'contextmenu' listener to `document`.
 
 ### Screenshot
