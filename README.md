@@ -2,10 +2,12 @@
 Handy debugging function for Vue. Right click any vue component, and it will show you neatly formatted info about it in the console.
 
 ```
-npm install --save vue-clicky
+npm install --save-dev vue-clicky
 ```
 ```javascript
-import 'vue-clicky'
+if (process.env.NODE_ENV === 'development') {
+  import 'vue-clicky';
+}
 ```
 It has no dependencies, and shouldn't conflict with anything. It just adds a 'contextmenu' listener to `document`.
 
