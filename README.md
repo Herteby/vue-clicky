@@ -9,6 +9,8 @@ if (process.env.NODE_ENV === 'development') {
   import 'vue-clicky';
 }
 ```
+(If you're not using Node/NPM,just download clicky.js and add it to `<head>`)
+
 It has no dependencies, and shouldn't conflict with anything. It just adds a 'contextmenu' listener to `document`.
 
 ### Screenshot
