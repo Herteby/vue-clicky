@@ -1,41 +1,49 @@
+var cloneDeep = require('lodash.clonedeep')
+
 document.addEventListener('contextmenu', function clicky(e, isParent){
     let vue = isParent ? e : e.target && e.target.__vue__
     if(vue){
         if(isParent){
-            console.groupCollapsed('%cparent:%c' + (vue.$parent ? vue.$options.name || vue.$options._componentTag : 'Vue'),'font-weight:normal','color:green')
+            console.groupCollapsed('%cparent   %c' + (vue.$parent ? vue.$options.name || vue.$options._componentTag : 'Vue'), 'font-weight:normal', 'color:green')
         } else {
-            console.group('%c' + (vue.$parent ? vue.$options.name || vue.$options._componentTag : 'Vue'),'color:green')
+            console.group('%c' + (vue.$parent ? vue.$options.name || vue.$options._componentTag : 'Vue'), 'color:green')
         }
-        let proto = new function vue(){}
-        console.log(Object.assign(proto,vue))
-        if(vue._data && Object.keys(vue._data).length){
-            let data = new function data(){}
-            for(let key in vue._data){
-                data[key] = vue[key]
-            }
-            console.log(data)
+        console.log(vue)
+        if(Object.keys(vue.$data).length){
+            console.log('data    ', cloneDeep(vue.$data))
         } else {
-            console.log('data',null)
+            console.log('data     %cnone', 'color:grey')
         }
-        let computed = new function computed(){}
+        
+        let computed = {}
         for(let key in vue._computedWatchers){
-            computed[key] = vue._computedWatchers[key].value
+            computed[key] = cloneDeep(vue._computedWatchers[key].value)
         }
         if(Object.keys(computed).length){
-            console.log(computed)
+            console.log('computed', computed)
         } else {
-            console.log('computed',null)
+            console.log('computed %cnone', 'color:grey')
         }
         if(vue._props && Object.keys(vue._props).length){
-            let proto = new function props(){}
-            console.log(Object.assign(proto,vue._props))
+            console.log('props   ', cloneDeep(vue._props))
         } else {
-            console.log('props',null)
+            console.log('props    %cnone', 'color:grey')
+        }
+        if(vue._grapher){
+            let grapher = {}
+            for(let key in vue._grapher){
+                grapher[key] = cloneDeep(vue[key])
+            }
+            if(Object.keys(grapher).length){
+                console.log('grapher ', grapher)
+            } else {
+                console.log('grapher  %cnone', 'color:grey')
+            }
         }
         if(vue.$parent){
-            clicky(vue.$parent,true)
+            clicky(vue.$parent, true)
         } else {
-            console.log('parent',null)
+            console.log('parent   %cnone', 'color:grey')
         }
         console.groupEnd()
     } else if(e.target.parentNode){

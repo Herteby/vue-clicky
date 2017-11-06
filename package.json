@@ -1,22 +1,54 @@
 {
-  "name": "vue-clicky",
-  "version": "1.1.0",
-  "description": "Handy debugging tool for Vue. Right click a component to see key info in the console.",
-  "main": "clicky.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_from": "vue-clicky@^1.1.0",
+  "_id": "vue-clicky@1.1.0",
+  "_inBundle": false,
+  "_integrity": "sha1-VYVmS0yaje0Bomf3B0raCoc0Cgc=",
+  "_location": "/vue-clicky",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "vue-clicky@^1.1.0",
+    "name": "vue-clicky",
+    "escapedName": "vue-clicky",
+    "rawSpec": "^1.1.0",
+    "saveSpec": null,
+    "fetchSpec": "^1.1.0"
   },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-clicky/-/vue-clicky-1.1.0.tgz",
+  "_shasum": "5585664b4c9a8ded01a267f7074ada0a87340a07",
+  "_spec": "vue-clicky@^1.1.0",
+  "_where": "/home/simon/Desktop/Keymaster-2.0",
+  "author": {
+    "name": "Simon Herteby"
+  },
+  "bugs": {
+    "url": "https://github.com/Herteby/vue-clicky/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Handy debugging tool for Vue. Right click a component to see key info in the console.",
+  "homepage": "https://github.com/Herteby/vue-clicky#readme",
+  "keywords": [
+    "vue",
+    "tool",
+    "debug"
+  ],
+  "license": "ISC",
+  "main": "clicky.js",
+  "name": "vue-clicky",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Herteby/vue-clicky.git"
   },
-  "keywords": [
-    "vue","tool","debug"
-  ],
-  "author": "Simon Herteby",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Herteby/vue-clicky/issues"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/Herteby/vue-clicky#readme"
+  "version": "1.1.0",
+  "dependencies": {
+    "lodash.clonedeep": "^4.5.0"
+  }
 }
