@@ -3,17 +3,9 @@ var options = {
     shift:false,
     ctrl:false
 }
-document.addEventListener('contextmenu', function clicky(e, isParent){
-    if(options.ctrl && !e.ctrlKey || options.shift && !e.shiftKey){
-        return
-    }
+function clicky(e, isParent){
     let vue = isParent ? e : e.target && e.target.__vue__
     if(vue){
-        if (options.ctrl || options.shift){
-        //since it is pretty clear what the intention is, we can stop right click menus etc.
-            e.preventDefault()
-            e.stopPropagation()
-        }
         if(isParent){
             console.groupCollapsed('%cparent   %c' + (vue.$parent ? vue.$options.name || vue.$options._componentTag : 'Vue'), 'font-weight:normal', 'color:green')
         } else {
@@ -61,6 +53,17 @@ document.addEventListener('contextmenu', function clicky(e, isParent){
         clicky({target:e.target.parentNode})
     } else {
         console.info('no Vue component found')
+    }
+}
+document.addEventListener('contextmenu', e => {
+    if((options.ctrl && !e.ctrlKey) || (options.shift && !e.shiftKey)){
+        return
+    } else {
+        if(options.ctrl || options.shift){
+            e.preventDefault()
+            e.stopPropagation()
+        }
+        clicky(e)
     }
 })
 
