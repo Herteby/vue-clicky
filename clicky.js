@@ -6,13 +6,14 @@ var options = {
 document.addEventListener('contextmenu', function clicky(e, isParent){
     if(options.ctrl && !e.ctrlKey || options.shift && !e.shiftKey){
         return
-    } else if (options.ctrl || options.shift){
-        //since it is pretty clear what the intention is, we can stop right click menus etc.
-        e.preventDefault()
-        e.stopPropagation()
     }
     let vue = isParent ? e : e.target && e.target.__vue__
     if(vue){
+        if (options.ctrl || options.shift){
+        //since it is pretty clear what the intention is, we can stop right click menus etc.
+            e.preventDefault()
+            e.stopPropagation()
+        }
         if(isParent){
             console.groupCollapsed('%cparent   %c' + (vue.$parent ? vue.$options.name || vue.$options._componentTag : 'Vue'), 'font-weight:normal', 'color:green')
         } else {
