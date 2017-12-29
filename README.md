@@ -30,4 +30,4 @@ Currently it shows:
 ```
 #### 1.2
 * With Chrome version 60+, the "class hack" that I used before to get things to display nicely is no longer necessary.
-* Now uses lodash.cloneDeep to fetch all the values so that you no longer see a bunch of (...) that you have to click on.
+* Now uses lodash.cloneDeep to fetch all the values so that you no longer see a bunch of (...) that you have to click on. This means that NPM is now required. If you want to use vue-clicky without NPM, you can grab the previous version [here](https://github.com/Herteby/vue-clicky/tree/378ad071689e5e9b56cef8c4aeaca8be36b283db)
