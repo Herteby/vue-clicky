@@ -1,6 +1,12 @@
 var cloneDeep = require('lodash.clonedeep')
-
+var options = {
+    shift:false,
+    ctrl:false
+}
 document.addEventListener('contextmenu', function clicky(e, isParent){
+    if(options.ctrl && !e.ctrlKey || options.shift && !e.shiftKey){
+        return
+    }
     let vue = isParent ? e : e.target && e.target.__vue__
     if(vue){
         if(isParent){
@@ -52,3 +58,5 @@ document.addEventListener('contextmenu', function clicky(e, isParent){
         console.info('no Vue component found')
     }
 })
+
+module.exports = {options}
