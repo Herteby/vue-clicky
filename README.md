@@ -1,14 +1,14 @@
 # vue-clicky
 Handy debugging function for Vue. Right click any vue component, and it will show you neatly formatted info about it in the console.
 
-Currently it shows:
+It shows:
 * The Vue component object
 * Current data, props and computed properties
 * Root DOM element
 * If using VueRouter, info about current route
 * Parent component. Open the parent and it will display the same info about it.
 
-## installation
+## Installation
 
 ```bash
 npm install vue-clicky
@@ -36,7 +36,7 @@ clicky({
 ### Changelog
 #### 2.0
 * Method of initializing and setting options has been changed.
-* Now using Rollup to build multiple versions.
+* Now using Rollup to build multiple versions for better compatibility.
 * Rewrote code to be more organized.
 * Shows component's root element
 * If using VueRouter, also shows info about current Route.
