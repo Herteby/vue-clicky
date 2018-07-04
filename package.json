@@ -1,54 +1,35 @@
 {
-  "_from": "vue-clicky@^1.1.0",
-  "_id": "vue-clicky@1.1.0",
-  "_inBundle": false,
-  "_integrity": "sha1-VYVmS0yaje0Bomf3B0raCoc0Cgc=",
-  "_location": "/vue-clicky",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "range",
-    "registry": true,
-    "raw": "vue-clicky@^1.1.0",
-    "name": "vue-clicky",
-    "escapedName": "vue-clicky",
-    "rawSpec": "^1.1.0",
-    "saveSpec": null,
-    "fetchSpec": "^1.1.0"
+  "name": "vue-clicky",
+  "version": "2.0.0",
+  "main": "dist/index.umd.js",
+  "module":"dist/index.esm.js",
+  "scripts": {
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config rollup.config.js --format umd --file dist/index.umd.js",
+    "build:es": "rollup --config rollup.config.js --format es --file dist/index.esm.js"
   },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/vue-clicky/-/vue-clicky-1.1.0.tgz",
-  "_shasum": "5585664b4c9a8ded01a267f7074ada0a87340a07",
-  "_spec": "vue-clicky@^1.1.0",
-  "_where": "/home/simon/Desktop/Keymaster-2.0",
+  "description": "Handy debugging tool for Vue. Right click a component to see key info in the console.",
+  "homepage": "https://github.com/Herteby/vue-clicky",
   "author": {
     "name": "Simon Herteby"
-  },
+  },  
   "bugs": {
     "url": "https://github.com/Herteby/vue-clicky/issues"
   },
-  "bundleDependencies": false,
+  "dependencies": {
+    "lodash.clonedeep": "^4.5.0",
+    "rollup": "^0.62.0",
+    "rollup-plugin-buble": "^0.19.2"
+  },
   "deprecated": false,
-  "description": "Handy debugging tool for Vue. Right click a component to see key info in the console.",
-  "homepage": "https://github.com/Herteby/vue-clicky#readme",
   "keywords": [
     "vue",
     "tool",
     "debug"
   ],
-  "license": "ISC",
-  "main": "clicky.js",
-  "name": "vue-clicky",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Herteby/vue-clicky.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.3.5",
-  "dependencies": {
-    "lodash.clonedeep": "^4.5.0"
-  }
+  }  
 }
