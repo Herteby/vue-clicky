@@ -1,14 +1,16 @@
 # vue-clicky
 Handy debugging function for Vue. Right click any vue component, and it will show you neatly formatted info about it in the console.
+### Screenshot
+![screenshot](https://github.com/Herteby/vue-clicky/blob/master/screenshot.png)
 
 It shows:
 * The Vue component object
 * Current data, props and computed properties
 * Root DOM element
 * If using VueRouter, info about current route
-* Parent component. Open the parent and it will display the same info about it.
+* Parent component. Click on the parent and it will display the same info about it.
 
-## Installation
+### Installation
 
 ```bash
 npm install vue-clicky
@@ -17,22 +19,16 @@ npm install vue-clicky
 ```javascript
 import clicky from 'vue-clicky'
 
-clicky()
+clicky() // call the exported function to initialize clicky
 
 // you can also pass some options to clicky:
 clicky({
-  shift:true, //default: false - shift must be pressed
-  ctrl:true,  //default: false - ctrl must be pressed
-  stop:true,  //default: false - prevent default context menu (should only be used together with shift:true or ctrl:true)
+  shift:true, //default: false - clicky won't trigger unless shift is pressed
+  ctrl:true,  //default: false - clicky won't trigger unless ctrl is pressed
+  stop:true,  //default: false - stops regular context menu from appearing when clicky is triggered (should only be used together with shift:true or ctrl:true)
   left:true  //default: false - trigger on left click instead of right click
 })
 ```
-
-### Screenshot
-![screenshot](https://github.com/Herteby/vue-clicky/blob/master/screenshot.png)
-
-
-
 ### Changelog
 #### 2.0
 * Method of initializing and setting options has been changed.
